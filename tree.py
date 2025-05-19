@@ -3,8 +3,7 @@ from graphviz import Digraph
 class Nodo:
     def __init__(self, etiqueta):
         self.etiqueta = etiqueta
-        self.izquierda = None
-        self.derecha = None
+        self.hijos = []
 
 class GameTree:
     def __init__(self, turnos):
@@ -12,30 +11,29 @@ class GameTree:
         self.construir(turnos)
 
     def construir(self, turnos):
-        actual = self.raiz
         for numero, blanca, negra in turnos:
+            nodo_turno = Nodo(f"Turno {numero}")
             nodo_blanca = Nodo(f"{numero}. {blanca}")
-            actual.izquierda = nodo_blanca
+            nodo_turno.hijos.append(nodo_blanca)
 
             if negra:
                 nodo_negra = Nodo(f"{numero}... {negra}")
-                actual.derecha = nodo_negra
-                actual = nodo_negra
-            else:
-                actual = nodo_blanca
+                nodo_turno.hijos.append(nodo_negra)
+
+            self.raiz.hijos.append(nodo_turno)
 
     def visualizar(self):
-        dot = Digraph()
+        dot = Digraph(format='png')
+        dot.attr(rankdir='TB', size='10', dpi='100')
+
         self._agregar_nodos(dot, self.raiz)
-        dot.render('arbol_partida', format='png', cleanup=True)
+        dot.render('arbol_partida', cleanup=True)
         print("\nÁrbol generado como 'arbol_partida.png'.")
 
     def _agregar_nodos(self, dot, nodo):
         if nodo:
             dot.node(str(id(nodo)), nodo.etiqueta)
-            if nodo.izquierda:
-                dot.edge(str(id(nodo)), str(id(nodo.izquierda)), label="Blancas")
-                self._agregar_nodos(dot, nodo.izquierda)
-            if nodo.derecha:
-                dot.edge(str(id(nodo)), str(id(nodo.derecha)), label="Negras")
-                self._agregar_nodos(dot, nodo.derecha)
+            for hijo in nodo.hijos:
+                dot.edge(str(id(nodo)), str(id(hijo)))
+                self._agregar_nodos(dot, hijo)
+
