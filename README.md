@@ -2,7 +2,7 @@
 
 ## 👩‍💻 Integrantes
 - 👤 Gisel Lorena Jaramillo  
-- 👤 Julieth Daza
+- 👤 Julieth Daza Villada
 
 ## 🧠 Lenguaje de Programación
 - 🐍 Python
