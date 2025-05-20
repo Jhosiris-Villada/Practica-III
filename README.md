@@ -22,7 +22,7 @@ Este proyecto fue realizado para la **Práctica III** de la asignatura **Lenguaj
 - ✅ Genera un **árbol visual** de la partida utilizando la librería `graphviz`.
 
 📎 **Enlace al video del proyecto:**  
-👉 https://youtu.be/2c5CczLFakw 
+👉 https://drive.google.com/file/d/1AZHZUC17JQx7T29vDi8_AX-FEH3kv1DR/view?usp=sharing 
 
 
 
