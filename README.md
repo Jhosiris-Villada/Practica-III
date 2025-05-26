@@ -2,7 +2,7 @@
 
 ## 👩‍💻 Integrantes
 - 👤 Gisel Lorena Jaramillo  
-- 👤 Julieth Daza
+- 👤 Julieth Daza Villada
 
 ## 🧠 Lenguaje de Programación
 - 🐍 Python
@@ -22,7 +22,7 @@ Este proyecto fue realizado para la **Práctica III** de la asignatura **Lenguaj
 - ✅ Genera un **árbol visual** de la partida utilizando la librería `graphviz`.
 
 📎 **Enlace al video del proyecto:**  
-👉 [Haz clic aquí para ver el video](https://www.ejemplo.com)  
+👉 https://drive.google.com/file/d/1AZHZUC17JQx7T29vDi8_AX-FEH3kv1DR/view?usp=sharing 
 
 
 
