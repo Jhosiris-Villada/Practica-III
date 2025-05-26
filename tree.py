@@ -27,12 +27,21 @@ class GameTree:
         dot.attr(rankdir='TB', size='10', dpi='100')
 
         self._agregar_nodos(dot, self.raiz)
-        dot.render('arbol_partida', cleanup=True)
-        print("\nÁrbol generado como 'arbol_partida.png'.")
+        dot.render('arbol_partida_colores', cleanup=True)
+        print("\nÁrbol generado como 'arbol_partida_colores.png'.")
 
     def _agregar_nodos(self, dot, nodo):
         if nodo:
-            dot.node(str(id(nodo)), nodo.etiqueta)
+            # Colorear nodos según el tipo
+            if nodo.etiqueta == "Partida":
+                dot.node(str(id(nodo)), nodo.etiqueta, style='filled', fillcolor='yellow')
+            elif ". " in nodo.etiqueta:  # Jugada blanca
+                dot.node(str(id(nodo)), nodo.etiqueta, style='filled', fillcolor='white', color='orange')
+            elif "... " in nodo.etiqueta:  # Jugada negra
+                dot.node(str(id(nodo)), nodo.etiqueta, style='filled', fillcolor='gray')
+            else:  # Nodo turno
+                dot.node(str(id(nodo)), nodo.etiqueta)
+
             for hijo in nodo.hijos:
                 dot.edge(str(id(nodo)), str(id(hijo)))
                 self._agregar_nodos(dot, hijo)
